@@ -1,6 +1,15 @@
 {
+    "amphp/amp": {
+        "version": "v2.5.0"
+    },
+    "amphp/byte-stream": {
+        "version": "v1.8.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.10.99"
+    },
+    "composer/semver": {
+        "version": "3.0.0"
     },
     "composer/xdebug-handler": {
         "version": "1.4.2"
@@ -93,6 +102,12 @@
     "egulias/email-validator": {
         "version": "2.1.19"
     },
+    "felixfbecker/advanced-json-rpc": {
+        "version": "v3.1.1"
+    },
+    "felixfbecker/language-server-protocol": {
+        "version": "v1.4.0"
+    },
     "infection/abstract-testframework-adapter": {
         "version": "0.3.0"
     },
@@ -123,6 +138,9 @@
     "myclabs/deep-copy": {
         "version": "1.10.1"
     },
+    "netresearch/jsonmapper": {
+        "version": "v2.1.0"
+    },
     "nikic/php-parser": {
         "version": "v4.8.0"
     },
@@ -131,6 +149,9 @@
     },
     "ondram/ci-detector": {
         "version": "3.4.0"
+    },
+    "openlss/lib-array2xml": {
+        "version": "1.0.0"
     },
     "phar-io/manifest": {
         "version": "2.0.1"
@@ -668,11 +689,17 @@
     "twig/twig": {
         "version": "v3.0.5"
     },
+    "vimeo/psalm": {
+        "version": "3.x-dev"
+    },
     "webimpress/safe-writer": {
         "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.9.1"
+    },
+    "webmozart/glob": {
+        "version": "4.1.0"
     },
     "webmozart/path-util": {
         "version": "2.3.0"

@@ -31,7 +31,8 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "*",
         "symfony/web-link": "*",
-        "symfony/yaml": "*"
+        "symfony/yaml": "*",
+        "vimeo/psalm": "dev-master"
     },
     "require-dev": {
         "doctrine/coding-standard": "^8.1",

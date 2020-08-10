@@ -1,0 +1,16 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "/Kernel\\.php/"
+        ]
+    },
+    "logs": {
+        "text": "var\/log\/infection.log"
+    },
+    "mutators": {
+        "@default": true
+    }
+}

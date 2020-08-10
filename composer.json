@@ -80,7 +80,11 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "infection": "vendor/bin/infection",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpunit": "vendor/bin/phpunit",
+        "psalm": "vendor/bin/psalm"
     },
     "conflict": {
         "symfony/symfony": "*"

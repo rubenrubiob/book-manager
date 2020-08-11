@@ -84,6 +84,20 @@ class AnyoTest extends TestCase
     }
 
     /**
+     * @test
+     * @dataProvider provideForLowerThan
+     */
+    public function lower_than(int $firstAnyo, int $secondAnyo, bool $expected) : void
+    {
+        $this->assertSame(
+            $expected,
+            Anyo::fromValue($firstAnyo)->lowerThan(
+                Anyo::fromValue($secondAnyo)
+            )
+        );
+    }
+
+    /**
      * @return array[]
      */
     public function provideForFromValue() : array
@@ -138,6 +152,30 @@ class AnyoTest extends TestCase
             'different anyo' => [
                 1900,
                 -1900,
+                false,
+            ],
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    public function provideForLowerThan() : array
+    {
+        return [
+            'lower than' => [
+                1900,
+                1999,
+                true,
+            ],
+            'equal' => [
+                1900,
+                1900,
+                false,
+            ],
+            'greater than' => [
+                1999,
+                1900,
                 false,
             ],
         ];

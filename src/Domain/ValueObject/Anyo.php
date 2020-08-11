@@ -57,6 +57,11 @@ final class Anyo
         return $this->anyo === $anotherAnyo->anyo;
     }
 
+    public function lowerThan(Anyo $anotherAnyo): bool
+    {
+        return $this->anyo < $anotherAnyo->anyo;
+    }
+
     /**
      * @throws AnyoIsNotValid
      */

@@ -1,0 +1,11 @@
+@startuml
+salt
+{^"Generador de bibliografía"
+{
+  Formato                   | ^APA      ^
+  Búsqueda                  | "Séneca   "
+  [Generar]
+  }
+}
+
+@enduml

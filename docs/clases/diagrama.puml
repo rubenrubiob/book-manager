@@ -1,0 +1,41 @@
+@startuml
+
+class Autor {
+    - Id $id
+    - Biografia $fechas
+
+    + crear(Id $id, Biografia $fechas, Id $idTraduccion, Locale $locale, Apelativo $apelativo)
+    + anadirTraduccion(Id $idTraduccion, Locale $locale, Apelativo $apelativo)
+    + anadirLibro(Libro $libro)
+}
+
+class Autor\Traduccion {
+    - Id $id
+    - Locale $idioma
+    - Apelativo $apelativo
+}
+
+class Libro {
+    - Id $id
+    - Titulo $titulo
+    - Subtitulo $subtitulo
+    - Anyo $anyoPublicacion
+    - Autor $autor
+    + crear(Id $id, Titulo $titulo, ?Titulo $subtitulo, Anyo $anyoPublicacion, Autor $autor)
+    + anadirEdicion(Id $id, Nombre $ciudad, Anyo $anyo, Formato $formato, Locale $locale)
+}
+
+class Libro\Edicion {
+    - Id $id
+    - Nombre $ciudad
+    - Anyo $anyo
+    - Formato $formato
+    - Locale $idioma
+}
+
+Autor "1" <|-- "n" Autor\Traduccion
+Autor "1" <|-- "n" Libro
+Libro "1" <|-- "n" Libro\Edicion
+
+
+@enduml

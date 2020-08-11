@@ -1,0 +1,31 @@
+@startuml
+salt
+{^"Autor"
+{^"Datos básicos"
+  Nombre                    | "Lucio Anneo  "
+  Apellidos                 | "Séneca       "
+  Alias                     | "Séneca       "
+  --
+  Fecha de nacimiento       | "4 a.C.       "
+  Fecha de fallecimiento    | "65 d.C.      "
+  }
+  --
+{^"Traducción"
+  Idioma                    | ^Catalán  ^
+  Nombre                    | "Luci Anneu       "
+  Apellidos                 | "Sèneca           "
+  Alias                     | "Sèneca           "
+}
+  --
+{^"Traducción"
+  Idioma                    | ^Inglés   ^
+  Nombre                    | "Lucius Annaeus   "
+  Apellidos                 | "Seneca           "
+  Alias                     | "Seneca           "
+}
+{+
+    [Cancelar] | [  Guardar   ]
+}
+}
+
+@enduml

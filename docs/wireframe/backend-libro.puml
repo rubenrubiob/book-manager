@@ -1,0 +1,30 @@
+@startuml
+salt
+{^"Libro de Séneca"
+{^"Datos básicos"
+  Título                    | "De la serenidad del alma   "
+  Subtítulo                 | "                           "
+  Año de publicación        | "55 d.C.       "
+  }
+  --
+{^"Edición"
+  Idioma                    | ^Castellano   ^
+  Formato                   | ^Tapa dura    ^
+  Año                       | "1974         "
+  Ciudad                    | "Madrid       "
+  Editorial                 | "Gredos       "
+}
+  --
+{^"Edición"
+  Idioma                    | ^Catalán      ^
+  Formato                   | ^Tapa blanda  ^
+  Año                       | "2019         "
+  Ciudad                    | "Barcelona    "
+  Editorial                 | "Bernat Metge "
+}
+{+
+    [Cancelar] | [  Guardar   ]
+}
+}
+
+@enduml

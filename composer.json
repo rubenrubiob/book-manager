@@ -53,12 +53,13 @@
     },
     "autoload": {
         "psr-4": {
+            "Domain\\": "src/Domain",
             "Infrastructure\\": "src/Infrastructure"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\Domain\\": "tests/Domain"
         }
     },
     "replace": {

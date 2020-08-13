@@ -11,13 +11,6 @@ use function Safe\sprintf;
 
 final class NombreIsNotValid extends Exception
 {
-    public static function withNombreVacio(): self
-    {
-        return new self(
-            'El nombre no puede estar vacío'
-        );
-    }
-
     public static function withNombreDemasiadoLargo(string $nombre): self
     {
         return new self(

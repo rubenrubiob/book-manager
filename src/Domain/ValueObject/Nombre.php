@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\ValueObject;
 
+use Domain\Exception\ValueObject\NombreIsVacio;
 use Domain\Exception\ValueObject\NombreIsNotValid;
 use InvalidArgumentException;
 use Webmozart\Assert\Assert;
@@ -26,6 +27,7 @@ final class Nombre
 
     /**
      * @throws NombreIsNotValid
+     * @throws NombreIsVacio
      */
     public static function fromString(string $nombre): self
     {
@@ -46,6 +48,7 @@ final class Nombre
 
     /**
      * @throws NombreIsNotValid
+     * @throws NombreIsVacio
      */
     private static function parseAndValidate(string $nombre): string
     {
@@ -54,7 +57,7 @@ final class Nombre
         try {
             Assert::stringNotEmpty($nombre);
         } catch (InvalidArgumentException $e) {
-            throw NombreIsNotValid::withNombreVacio();
+            throw NombreIsVacio::crear();
         }
 
         try {

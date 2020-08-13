@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject;
 
+use Domain\Exception\ValueObject\NombreIsVacio;
 use Domain\Exception\ValueObject\NombreIsNotValid;
 use Domain\ValueObject\Nombre;
 use PHPUnit\Framework\TestCase;
@@ -29,7 +30,7 @@ class NombreTest extends TestCase
      */
     public function from_string_with_nombre_vacio_throws_exception(): void
     {
-        $this->expectException(NombreIsNotValid::class);
+        $this->expectException(NombreIsVacio::class);
 
         Nombre::fromString('  ');
     }

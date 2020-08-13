@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject;
@@ -12,7 +13,7 @@ class EmailAddressTest extends TestCase
     /**
      * @test
      */
-    public function create() : void
+    public function create(): void
     {
         $email = 'valid@email.address';
 
@@ -28,7 +29,7 @@ class EmailAddressTest extends TestCase
      * @test
      * @dataProvider provideForEqualsTo
      */
-    public function equals_to(string $firstEmailAddress, string $secondEmailAddress, bool $expected) : void
+    public function equals_to(string $firstEmailAddress, string $secondEmailAddress, bool $expected): void
     {
         $this->assertSame(
             $expected,
@@ -41,7 +42,7 @@ class EmailAddressTest extends TestCase
     /**
      * @test
      */
-    public function create_with_invalid_email_address_throws_exception() : void
+    public function create_with_invalid_email_address_throws_exception(): void
     {
         $this->expectException(EmailAddressIsNotValid::class);
 
@@ -51,7 +52,7 @@ class EmailAddressTest extends TestCase
     /**
      * @test
      */
-    public function create_with_empty_email_address_throws_exception() : void
+    public function create_with_empty_email_address_throws_exception(): void
     {
         $this->expectException(EmailAddressIsNotValid::class);
 
@@ -61,7 +62,7 @@ class EmailAddressTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForEqualsTo() : array
+    public function provideForEqualsTo(): array
     {
         return [
             'equal email addresses' => [

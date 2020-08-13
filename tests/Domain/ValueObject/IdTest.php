@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject;
@@ -13,7 +14,7 @@ class IdTest extends TestCase
     /**
      * @test
      */
-    public function generate() : void
+    public function generate(): void
     {
         $this->assertTrue(
             (new Validator())->validate(
@@ -25,7 +26,7 @@ class IdTest extends TestCase
     /**
      * @test
      */
-    public function from_string() : void
+    public function from_string(): void
     {
         $idAsString = 'accbfed6-2a47-486e-b5e8-89e9616cb445';
 
@@ -40,7 +41,7 @@ class IdTest extends TestCase
     /**
      * @test
      */
-    public function from_string_with_invalid_id_throws_exception() : void
+    public function from_string_with_invalid_id_throws_exception(): void
     {
         $this->expectException(IdIsNotValid::class);
 
@@ -50,7 +51,7 @@ class IdTest extends TestCase
     /**
      * @test
      */
-    public function from_string_with_empty_id_throws_exception() : void
+    public function from_string_with_empty_id_throws_exception(): void
     {
         $this->expectException(IdIsNotValid::class);
 
@@ -61,7 +62,7 @@ class IdTest extends TestCase
      * @test
      * @dataProvider provideForEqualsTo
      */
-    public function equals_to(string $firstId, string $secondId, bool $expected) : void
+    public function equals_to(string $firstId, string $secondId, bool $expected): void
     {
         $this->assertSame(
             $expected,
@@ -74,7 +75,7 @@ class IdTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForEqualsTo() : array
+    public function provideForEqualsTo(): array
     {
         return [
             'equals' => [

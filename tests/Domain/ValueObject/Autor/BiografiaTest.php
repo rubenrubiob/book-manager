@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject\Autor;
@@ -11,20 +12,18 @@ use PHPUnit\Framework\TestCase;
 class BiografiaTest extends TestCase
 {
     /**
-     * @test
-     * @dataProvider provideForFromAnyoNacimientoYMuerte
-     *
-     * @param Anyo            $expectedAnyoNacimiento
-     * @param Anyo            $expectedAnyoMuerte
      * @param string|int|null $anyoNacimiento
      * @param string|int|null $anyoMuerte
+     *
+     * @test
+     * @dataProvider provideForFromAnyoNacimientoYMuerte
      */
     public function from_anyo_nacimiento_y_muerte(
         Anyo $expectedAnyoNacimiento,
         Anyo $expectedAnyoMuerte,
         $anyoNacimiento,
         $anyoMuerte
-    ) : void {
+    ): void {
         $biografia = Biografia::fromAnyoNacimientoYMuerte($anyoNacimiento, $anyoMuerte);
 
         $this->assertTrue(
@@ -40,18 +39,17 @@ class BiografiaTest extends TestCase
     }
 
     /**
-     * @test
-     * @dataProvider provideForFromAnyoNacimientoYMuerteVivo
-     *
-     * @param Anyo            $expectedAnyoNacimiento
      * @param string|int|null $anyoNacimiento
      * @param string|int|null $anyoMuerte
+     *
+     * @test
+     * @dataProvider provideForFromAnyoNacimientoYMuerteVivo
      */
     public function from_anyo_nacimiento_y_muerte_vivo(
         Anyo $expectedAnyoNacimiento,
         $anyoNacimiento,
         $anyoMuerte
-    ) : void {
+    ): void {
         $biografia = Biografia::fromAnyoNacimientoYMuerte($anyoNacimiento, $anyoMuerte);
 
         $this->assertTrue(
@@ -68,18 +66,13 @@ class BiografiaTest extends TestCase
     /**
      * @test
      * @dataProvider provideForFromAnyos
-     *
-     * @param Anyo $expectedAnyoNacimiento
-     * @param Anyo $expectedAnyoMuerte
-     * @param Anyo $anyoNacimiento
-     * @param Anyo $anyoMuerte
      */
     public function from_anyos(
         Anyo $expectedAnyoNacimiento,
         Anyo $expectedAnyoMuerte,
         Anyo $anyoNacimiento,
         Anyo $anyoMuerte
-    ) : void {
+    ): void {
         $biografia = Biografia::fromAnyos($anyoNacimiento, $anyoMuerte);
 
         $this->assertTrue(
@@ -97,7 +90,7 @@ class BiografiaTest extends TestCase
     /**
      * @test
      */
-    public function from_anyos_vivo() : void
+    public function from_anyos_vivo(): void
     {
         $anyoNacimiento = Anyo::fromValue(1940);
 
@@ -117,7 +110,7 @@ class BiografiaTest extends TestCase
     /**
      * @test
      */
-    public function from_anyo_nacimiento_y_muerte_con_fecha_muerte_anterior_a_fecha_nacimiento_throws_exception() : void
+    public function from_anyo_nacimiento_y_muerte_con_fecha_muerte_anterior_a_fecha_nacimiento_throws_exception(): void
     {
         $this->expectException(BiografiaIsNotValid::class);
 
@@ -131,7 +124,7 @@ class BiografiaTest extends TestCase
      * @test
      * @dataProvider providerForEqualsTo
      */
-    public function equals_to(bool $expected, Biografia $primeraBiografia, Biografia $segundaBiografia) : void
+    public function equals_to(bool $expected, Biografia $primeraBiografia, Biografia $segundaBiografia): void
     {
         $this->assertSame(
             $expected,
@@ -216,7 +209,7 @@ class BiografiaTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForFromAnyoNacimientoYMuerteVivo() : array
+    public function provideForFromAnyoNacimientoYMuerteVivo(): array
     {
         return [
             'vivo (con string)' => [

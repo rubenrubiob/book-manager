@@ -23,7 +23,7 @@ final class EmailAddress
     /**
      * @throws EmailAddressIsNotValid
      */
-    public static function create(string $emailAddress) : self
+    public static function create(string $emailAddress): self
     {
         self::validate($emailAddress);
 
@@ -32,12 +32,12 @@ final class EmailAddress
         );
     }
 
-    public function asString() : string
+    public function asString(): string
     {
         return $this->emailAddress;
     }
 
-    public function equalsTo(EmailAddress $anotherEmailAddress) : bool
+    public function equalsTo(EmailAddress $anotherEmailAddress): bool
     {
         return $this->emailAddress === $anotherEmailAddress->emailAddress;
     }
@@ -45,7 +45,7 @@ final class EmailAddress
     /**
      * @throws EmailAddressIsNotValid
      */
-    private static function validate(string $emailAddress) : void
+    private static function validate(string $emailAddress): void
     {
         try {
             Assert::email($emailAddress);

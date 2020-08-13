@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject;
@@ -15,7 +16,7 @@ class AnyoTest extends TestCase
      * @test
      * @dataProvider provideForFromValue
      */
-    public function from_value($value, int $expectedAsInt) : void
+    public function from_value($value, int $expectedAsInt): void
     {
         $anyo = Anyo::fromValue($value);
 
@@ -28,7 +29,7 @@ class AnyoTest extends TestCase
     /**
      * @test
      */
-    public function from_value_with_cero_as_int() : void
+    public function from_value_with_cero_as_int(): void
     {
         $this->expectException(AnyoIsNotValid::class);
         $this->expectExceptionMessage('El año "0" no existe');
@@ -39,7 +40,7 @@ class AnyoTest extends TestCase
     /**
      * @test
      */
-    public function from_value_with_cero_as_string() : void
+    public function from_value_with_cero_as_string(): void
     {
         $this->expectException(AnyoIsNotValid::class);
         $this->expectExceptionMessage('El año "0" no existe');
@@ -50,7 +51,7 @@ class AnyoTest extends TestCase
     /**
      * @test
      */
-    public function from_value_with_invalid_string_format() : void
+    public function from_value_with_invalid_string_format(): void
     {
         $this->expectException(AnyoIsNotValid::class);
         $this->expectExceptionMessage('"this is not valid" no tiene un formato de año válido');
@@ -61,7 +62,7 @@ class AnyoTest extends TestCase
     /**
      * @test
      */
-    public function from_value_with_invalid_data_type() : void
+    public function from_value_with_invalid_data_type(): void
     {
         $this->expectException(AnyoIsNotValid::class);
         $this->expectExceptionMessage('El tipo "array" no es válido');
@@ -73,7 +74,7 @@ class AnyoTest extends TestCase
      * @test
      * @dataProvider provideForEqualsTo
      */
-    public function equals_to(int $firstAnyo, int $secondAnyo, bool $expected) : void
+    public function equals_to(int $firstAnyo, int $secondAnyo, bool $expected): void
     {
         $this->assertSame(
             $expected,
@@ -87,7 +88,7 @@ class AnyoTest extends TestCase
      * @test
      * @dataProvider provideForLowerThan
      */
-    public function lower_than(int $firstAnyo, int $secondAnyo, bool $expected) : void
+    public function lower_than(int $firstAnyo, int $secondAnyo, bool $expected): void
     {
         $this->assertSame(
             $expected,
@@ -100,7 +101,7 @@ class AnyoTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForFromValue() : array
+    public function provideForFromValue(): array
     {
         return [
             'int positive' => [
@@ -141,7 +142,7 @@ class AnyoTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForEqualsTo() : array
+    public function provideForEqualsTo(): array
     {
         return [
             'equal anyo' => [
@@ -160,7 +161,7 @@ class AnyoTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideForLowerThan() : array
+    public function provideForLowerThan(): array
     {
         return [
             'lower than' => [

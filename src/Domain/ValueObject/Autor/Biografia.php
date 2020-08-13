@@ -8,6 +8,9 @@ use Domain\Exception\ValueObject\AnyoIsNotValid;
 use Domain\Exception\ValueObject\Autor\BiografiaIsNotValid;
 use Domain\ValueObject\Anyo;
 
+use function is_string;
+use function trim;
+
 /**
  * @psalm-immutable
  */
@@ -51,7 +54,7 @@ final class Biografia
         return new self($anyoNacimiento, $anyoMuerte);
     }
 
-    public function equalsTo(Biografia $anotherBiografia) : bool
+    public function equalsTo(Biografia $anotherBiografia): bool
     {
         if ($this->anyoMuerte !== null && $anotherBiografia->anyoMuerte !== null) {
             return $this->anyoNacimiento->equalsTo($anotherBiografia->anyoNacimiento)
@@ -69,12 +72,12 @@ final class Biografia
         return $this->anyoNacimiento->equalsTo($anotherBiografia->anyoNacimiento);
     }
 
-    public function anyoNacimiento() : Anyo
+    public function anyoNacimiento(): Anyo
     {
         return $this->anyoNacimiento;
     }
 
-    public function anyoMuerte() : ?Anyo
+    public function anyoMuerte(): ?Anyo
     {
         return $this->anyoMuerte;
     }

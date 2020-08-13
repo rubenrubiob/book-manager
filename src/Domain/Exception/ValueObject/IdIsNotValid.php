@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domain\Exception\ValueObject;
 
 use Exception;
+
 use function Safe\sprintf;
 
 final class IdIsNotValid extends Exception

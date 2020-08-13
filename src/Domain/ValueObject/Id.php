@@ -21,7 +21,7 @@ final class Id
         $this->id = $id;
     }
 
-    public static function generate() : self
+    public static function generate(): self
     {
         return new self(
             Uuid::uuid4()->toString()
@@ -31,19 +31,19 @@ final class Id
     /**
      * @throws IdIsNotValid
      */
-    public static function fromString(string $id) : self
+    public static function fromString(string $id): self
     {
         self::validate($id);
 
         return new self($id);
     }
 
-    public function asString() : string
+    public function asString(): string
     {
         return $this->id;
     }
 
-    public function equalsTo(Id $anotherId) : bool
+    public function equalsTo(Id $anotherId): bool
     {
         return $this->id === $anotherId->id;
     }
@@ -51,7 +51,7 @@ final class Id
     /**
      * @throws IdIsNotValid
      */
-    private static function validate(string $id) : void
+    private static function validate(string $id): void
     {
         try {
             Assert::uuid($id);

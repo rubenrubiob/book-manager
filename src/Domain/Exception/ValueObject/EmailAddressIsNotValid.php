@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Domain\Exception\ValueObject;
 
 use Exception;
+
 use function Safe\sprintf;
 
 final class EmailAddressIsNotValid extends Exception
 {
-    public static function withFormat(string $emailAddress) : self
+    public static function withFormat(string $emailAddress): self
     {
         return new self(
             sprintf(

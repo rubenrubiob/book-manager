@@ -5,19 +5,20 @@ declare(strict_types=1);
 namespace Domain\Exception\ValueObject;
 
 use Exception;
+
 use function gettype;
 use function Safe\sprintf;
 
 final class AnyoIsNotValid extends Exception
 {
-    public static function withAnyoCero() : self
+    public static function withAnyoCero(): self
     {
         return new self(
             'El año "0" no existe'
         );
     }
 
-    public static function withFormat(string $anyo) : self
+    public static function withFormat(string $anyo): self
     {
         return new self(
             sprintf(
@@ -30,7 +31,7 @@ final class AnyoIsNotValid extends Exception
     /**
      * @param mixed $type
      */
-    public static function withType($type) : self
+    public static function withType($type): self
     {
         return new self(
             sprintf(

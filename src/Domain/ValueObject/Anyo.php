@@ -7,6 +7,7 @@ namespace Domain\ValueObject;
 use Domain\Exception\ValueObject\AnyoIsNotValid;
 use InvalidArgumentException;
 use Webmozart\Assert\Assert;
+
 use function is_int;
 use function is_string;
 use function str_replace;
@@ -34,7 +35,7 @@ final class Anyo
      *
      * @throws AnyoIsNotValid
      */
-    public static function fromValue($value) : self
+    public static function fromValue($value): self
     {
         if (is_int($value)) {
             return self::fromInt($value);
@@ -47,12 +48,12 @@ final class Anyo
         throw AnyoIsNotValid::withType($value);
     }
 
-    public function asInt() : int
+    public function asInt(): int
     {
         return $this->anyo;
     }
 
-    public function equalsTo(Anyo $anotherAnyo) : bool
+    public function equalsTo(Anyo $anotherAnyo): bool
     {
         return $this->anyo === $anotherAnyo->anyo;
     }
@@ -65,7 +66,7 @@ final class Anyo
     /**
      * @throws AnyoIsNotValid
      */
-    private static function fromInt(int $value) : self
+    private static function fromInt(int $value): self
     {
         if ($value === self::ZERO) {
             throw AnyoIsNotValid::withAnyoCero();
@@ -77,7 +78,7 @@ final class Anyo
     /**
      * @throws AnyoIsNotValid
      */
-    private static function fromString(string $value) : self
+    private static function fromString(string $value): self
     {
         $value = str_replace(self::THOUSAND_SEPARATOR, '', $value);
 

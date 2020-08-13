@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Exception\ValueObject\Biografia;
+namespace Domain\Exception\ValueObject\Autor;
 
 use Domain\ValueObject\Anyo;
 use Exception;

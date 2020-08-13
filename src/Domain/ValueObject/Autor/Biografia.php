@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\ValueObject\Autor;
 
 use Domain\Exception\ValueObject\AnyoIsNotValid;
-use Domain\Exception\ValueObject\Biografia\BiografiaIsNotValid;
+use Domain\Exception\ValueObject\Autor\BiografiaIsNotValid;
 use Domain\ValueObject\Anyo;
 
 /**

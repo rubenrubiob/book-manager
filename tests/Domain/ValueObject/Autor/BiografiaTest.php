@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Tests\Domain\ValueObject\Autor;
 
-use Domain\Exception\ValueObject\Biografia\BiografiaIsNotValid;
+use Domain\Exception\ValueObject\Autor\BiografiaIsNotValid;
 use Domain\ValueObject\Anyo;
 use Domain\ValueObject\Autor\Biografia;
 use PHPUnit\Framework\TestCase;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\ValueObject;
 
-use Domain\Exception\ValueObject\NombreIsVacio;
 use Domain\Exception\ValueObject\NombreIsNotValid;
+use Domain\Exception\ValueObject\NombreIsVacio;
 use InvalidArgumentException;
 use Webmozart\Assert\Assert;
 

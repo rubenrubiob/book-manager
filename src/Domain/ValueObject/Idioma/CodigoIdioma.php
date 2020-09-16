@@ -8,7 +8,7 @@ use Domain\Exception\ValueObject\Idioma\CodigoIdiomaIsNotValid;
 use InvalidArgumentException;
 use Webmozart\Assert\Assert;
 
-use function mb_strtolower;
+use function strtolower;
 use function trim;
 
 /**

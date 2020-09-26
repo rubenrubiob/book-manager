@@ -16,6 +16,7 @@ use function trim;
  */
 final class CodigoIdioma
 {
+    private const REGEX_CODIGO = '/^[a-z]{3}$/';
     private string $codigo;
 
     private function __construct(string $codigo)
@@ -52,7 +53,7 @@ final class CodigoIdioma
         );
 
         try {
-            Assert::regex($parsedCodigo, '/^[a-z]{3}$/');
+            Assert::regex($parsedCodigo, self::REGEX_CODIGO);
         } catch (InvalidArgumentException $e) {
             throw CodigoIdiomaIsNotValid::withCodigo($codigo);
         }

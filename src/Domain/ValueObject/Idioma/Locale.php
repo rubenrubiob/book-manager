@@ -16,6 +16,16 @@ use function trim;
  */
 final class Locale
 {
+    public const CA = 'ca';
+    public const ES = 'es';
+    public const EN = 'en';
+
+    public const LOCALE_MAP = [
+        self::CA => self::CA,
+        self::ES => self::ES,
+        self::EN => self::EN,
+    ];
+
     private string $codigo;
 
     private function __construct(string $codigo)
@@ -28,6 +38,21 @@ final class Locale
         return new self(
             self::parseAndValidateCodigo($codigo)
         );
+    }
+
+    public static function ca(): self
+    {
+        return new self(self::CA);
+    }
+
+    public static function es(): self
+    {
+        return new self(self::ES);
+    }
+
+    public static function en(): self
+    {
+        return new self(self::EN);
     }
 
     public function asString(): string
@@ -52,7 +77,7 @@ final class Locale
         );
 
         try {
-            Assert::regex($parsedCodigo, '/^[a-z]{2}$/');
+            Assert::keyExists(self::LOCALE_MAP, $parsedCodigo);
         } catch (InvalidArgumentException $e) {
             throw LocaleIsNotValid::withCodigo($codigo);
         }

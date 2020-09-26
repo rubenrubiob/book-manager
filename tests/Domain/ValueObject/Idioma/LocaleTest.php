@@ -25,6 +25,27 @@ class LocaleTest extends TestCase
     /**
      * @test
      */
+    public function from_language_name(): void
+    {
+        $this->assertSame(
+            Locale::CA,
+            Locale::ca()->asString()
+        );
+
+        $this->assertSame(
+            Locale::ES,
+            Locale::es()->asString()
+        );
+
+        $this->assertSame(
+            Locale::EN,
+            Locale::en()->asString()
+        );
+    }
+
+    /**
+     * @test
+     */
     public function from_codigo_with_codigo_vacio_throws_exception(): void
     {
         $this->expectException(LocaleIsNotValid::class);
@@ -54,6 +75,16 @@ class LocaleTest extends TestCase
 
     /**
      * @test
+     */
+    public function from_codigo_with_not_allowed_locale_throws_exception(): void
+    {
+        $this->expectException(LocaleIsNotValid::class);
+
+        Locale::fromCodigo('fr');
+    }
+
+    /**
+     * @test
      * @dataProvider provideForEqualsTo
      */
     public function equals_to(bool $expected, string $primerCodigo, string $segundoCodigo): void
@@ -73,15 +104,15 @@ class LocaleTest extends TestCase
     {
         return [
             'codigo sin espacios' => [
-                'ca',
+                Locale::CA,
                 'ca',
             ],
             'codigo con espacios' => [
-                'ca',
+                Locale::CA,
                 ' ca ',
             ],
             'codigo con espacios y mayúsculas' => [
-                'ca',
+                Locale::CA,
                 ' CA ',
             ],
         ];

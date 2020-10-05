@@ -32,18 +32,18 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "*",
         "symfony/web-link": "*",
-        "symfony/yaml": "*",
-        "vimeo/psalm": "dev-master"
+        "symfony/yaml": "*"
     },
     "require-dev": {
         "doctrine/coding-standard": "^8.1",
-        "infection/infection": "^0.16.4",
-        "phpstan/phpstan": "^0.12.37",
+        "infection/infection": "*",
+        "phpstan/phpstan": "*",
         "phpunit/phpunit": "^9",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/test-pack": "*",
+        "vimeo/psalm": "*"
     },
     "config": {
         "optimize-autoloader": true,

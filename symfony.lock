@@ -17,6 +17,9 @@
     "dealerdirect/phpcodesniffer-composer-installer": {
         "version": "v0.7.0"
     },
+    "dnoegel/php-xdg-base-dir": {
+        "version": "v0.1.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -195,6 +198,9 @@
     "phpunit/php-timer": {
         "version": "5.0.1"
     },
+    "phpunit/php-token-stream": {
+        "version": "4.0.4"
+    },
     "phpunit/phpunit": {
         "version": "4.7",
         "recipe": {
@@ -236,9 +242,6 @@
     "sebastian/comparator": {
         "version": "4.0.3"
     },
-    "sebastian/complexity": {
-        "version": "2.0.0"
-    },
     "sebastian/diff": {
         "version": "4.0.2"
     },
@@ -250,9 +253,6 @@
     },
     "sebastian/global-state": {
         "version": "5.0.0"
-    },
-    "sebastian/lines-of-code": {
-        "version": "1.0.0"
     },
     "sebastian/object-enumerator": {
         "version": "4.0.2"

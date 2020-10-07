@@ -123,6 +123,41 @@ class ApelativoTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function from_alias(): void
+    {
+        $alias     = Nombre::fromString('Aristóteles');
+        $apelativo = Apelativo::fromAlias($alias->asString());
+
+        $this->assertAlias($apelativo, $alias);
+        $this->assertNombre($apelativo, null);
+        $this->assertApellidos($apelativo, null);
+    }
+
+    /**
+     * @test
+     */
+    public function from_alias_with_empty_alias_throws_exception(): void
+    {
+        $this->expectException(ApelativoIsNotValid::class);
+
+        Apelativo::fromAlias('  ');
+    }
+
+    /**
+     * @test
+     * @dataProvider provideForEqualsTo
+     */
+    public function equals_to(bool $expected, Apelativo $primerApelativo, Apelativo $segundoApelativo): void
+    {
+        $this->assertSame(
+            $expected,
+            $primerApelativo->equalsTo($segundoApelativo)
+        );
+    }
+
+    /**
      * @return array[]
      */
     public function provideForFromParts(): array
@@ -227,6 +262,178 @@ class ApelativoTest extends TestCase
                 Nombre::fromString('Homero'),
                 null,
                 null,
+            ],
+        ];
+    }
+
+    public function provideForEqualsTo(): array
+    {
+        return [
+            'equals: only alias' => [
+                true,
+                Apelativo::fromAlias('Aristóteles'),
+                Apelativo::fromAlias('Aristóteles'),
+            ],
+            'equals: only alias y nombre' => [
+                true,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    null,
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    null,
+                ),
+            ],
+            'equals: only alias y apellido' => [
+                true,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'García Lorca',
+                ),
+            ],
+            'equals: complete' => [
+                true,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'García Lorca',
+                ),
+            ],
+            'not equals: only alias' => [
+                false,
+                Apelativo::fromAlias('García Lorca'),
+                Apelativo::fromAlias('Lorca'),
+            ],
+            'not equals: same alias, first with nombre, second without' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    null,
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    null,
+                ),
+            ],
+            'not equals: same alias, first without nombre, second with' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    null,
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    null,
+                ),
+            ],
+            'not equals: same alias, different nombre' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Fede',
+                    null,
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    null,
+                ),
+            ],
+            'not equals: same alias, different nombre, with apellido' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Fede',
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'García Lorca',
+                ),
+            ],
+            'not equals: same alias, first with apellido, second without' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    null,
+                ),
+            ],
+            'not equals: same alias, first without apellido, second with' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    null,
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'García Lorca',
+                ),
+            ],
+            'not equals: same alias, different apellido' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    null,
+                    'Lorca',
+                ),
+            ],
+            'not equals: same alias, different apellido, with nombre' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'Lorca',
+                ),
+            ],
+            'not equals: same alias, different apellido, different nombre' => [
+                false,
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Fede',
+                    'García Lorca',
+                ),
+                Apelativo::fromParts(
+                    'García Lorca',
+                    'Federico',
+                    'Lorca',
+                ),
             ],
         ];
     }

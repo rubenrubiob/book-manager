@@ -47,6 +47,25 @@ final class Apelativo
         );
     }
 
+    public static function fromAlias(string $alias): self
+    {
+        return new self(
+            self::parseAndValidateAlias($alias),
+            null,
+            null
+        );
+    }
+
+    public function equalsTo(Apelativo $anotherApelativo): bool
+    {
+        if (! $this->alias->equalsTo($anotherApelativo->alias)) {
+            return false;
+        }
+
+        return $this->isComponentEquals($this->nombre, $anotherApelativo->nombre)
+            && $this->isComponentEquals($this->apellidos, $anotherApelativo->apellidos);
+    }
+
     public function alias(): Nombre
     {
         return $this->alias;
@@ -94,5 +113,18 @@ final class Apelativo
         }
 
         return null;
+    }
+
+    private function isComponentEquals(?Nombre $component, ?Nombre $anotherComponent): bool
+    {
+        if ($component !== null && $anotherComponent !== null) {
+            return $component->equalsTo($anotherComponent);
+        }
+
+        if ($component === null && $anotherComponent !== null) {
+            return false;
+        }
+
+        return $component === null || $anotherComponent !== null;
     }
 }
